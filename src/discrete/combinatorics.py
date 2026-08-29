@@ -14,13 +14,7 @@ def generate_arrangements(alphabet: List[str], k: int) -> List[str]:
 
         for i, char in enumerate(alphabet):
             if i not in used_indices:
-                used_indices.add(i)
-                current_token.append(char)
-
-                backtrack(current_token, used_indices)
-
-                current_token.pop()
-                used_indices.remove(i)
+                backtrack(current_token + [char], used_indices | {i})
 
     backtrack([], set())
     return result

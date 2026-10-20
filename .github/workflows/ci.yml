@@ -19,8 +19,8 @@ jobs:
         with:
           enable-cache: true
 
-      - name: Run linting and style checks via pre-commit
-        uses: pre-commit/action@v3.0.1
+      - name: Run pre-commit hooks
+        run: uv run pre-commit run --all-files
 
       - name: Run test suite
         run: uv run pytest
